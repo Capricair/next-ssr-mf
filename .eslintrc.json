@@ -1,0 +1,27 @@
+{
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": ["libs/*.js", "**/*.min.js"],
+  "env": {
+    "es6": true
+  },
+  "globals": {
+    "google": "readonly",
+    "$zopim": "readonly",
+    "FB": "readonly",
+    "__NEXT_DATA__": "readonly",
+    "dataLayer": "readonly"
+  },
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "@next/next/no-html-link-for-pages": "off",
+    "@next/next/no-assign-module-variable": "off",
+    "jsx-a11y/alt-text": "off",
+    "react/display-name": "off",
+    "no-dupe-keys": "error",
+    "no-dupe-args": "error",
+    "import/no-anonymous-default-export": "off",
+    "react-hooks/exhaustive-deps": "error",
+    "no-undef": "error",
+    "react/jsx-key": "error"
+  }
+}
