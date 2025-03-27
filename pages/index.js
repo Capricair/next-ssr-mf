@@ -1,9 +1,11 @@
+import Test from "@/components/test";
+
 function Homepage() {
   return (
     <div>
-      <div>Hello, next!</div>
+      <Test></Test>
     </div>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;
