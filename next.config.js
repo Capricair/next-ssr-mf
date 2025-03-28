@@ -12,20 +12,20 @@ module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   webpack: (config, options) => {
-    config.plugins.push(
-      new NextFederationPlugin({
-        name: "federation",
-        filename: "static/chunks/remoteEntry.js",
-        exposes: {
-          "./test": "./components/test/index.js",
-        },
-        remotes: remotes(options.isServer),
-        shared: {},
-        extraOptions: {
-          exposePages: true,
-        },
-      })
-    );
+    // config.plugins.push(
+    //   new NextFederationPlugin({
+    //     name: "federation",
+    //     filename: "static/chunks/remoteEntry.js",
+    //     exposes: {
+    //       "./test": "./components/test/index.js",
+    //     },
+    //     remotes: remotes(options.isServer),
+    //     shared: {},
+    //     extraOptions: {
+    //       exposePages: true,
+    //     },
+    //   })
+    // );
     return config;
   },
 };
