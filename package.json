@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "author": "YangSen",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=development PORT=3010 next dev",
     "build": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
