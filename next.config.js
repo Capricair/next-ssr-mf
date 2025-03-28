@@ -19,11 +19,11 @@ module.exports = {
         exposes: {
           "./test": "./components/test/index.js",
         },
-        // remotes: remotes(options.isServer),
-        // shared: {},
-        // extraOptions: {
-        //   exposePages: true,
-        // },
+        remotes: remotes(options.isServer),
+        shared: {},
+        extraOptions: {
+          exposePages: true,
+        },
       })
     );
     return config;
