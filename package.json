@@ -11,9 +11,10 @@
     "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true PORT=3010 next start"
   },
   "dependencies": {
-    "@module-federation/nextjs-mf": "8.8.21",
+    "@module-federation/nextjs-mf": "8.8.24",
     "@module-federation/runtime": "0.11.2",
     "axios": "1.7.7",
+    "cors": "2.8.5",
     "next": "12.3.1",
     "prop-types": "15.8.1",
     "react": "17.0.2",

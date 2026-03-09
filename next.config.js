@@ -1,11 +1,11 @@
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
+const { FederationRuntimePlugin } = require("@module-federation/runtime");
 
-const remotes = (isServer) => {
-  const location = isServer ? "ssr" : "chunks";
-  return {
-    home: `home@http://localhost:3001/_next/static/${location}/remoteEntry.js`,
-    shop: `shop@http://localhost:3002/_next/static/${location}/remoteEntry.js`,
-  };
+const remotes = (items) => {
+  return items.map(({ name, port, isServer }) => {
+    const location = isServer ? "ssr" : "chunks";
+    return `${name}@http://localhost:${port}/_next/static/${location}/remoteEntry.js`;
+  });
 };
 
 module.exports = {
@@ -14,12 +14,12 @@ module.exports = {
   webpack: (config, options) => {
     // config.plugins.push(
     //   new NextFederationPlugin({
-    //     name: "federation",
+    //     name: "remote",
     //     filename: "static/chunks/remoteEntry.js",
     //     exposes: {
     //       "./test": "./components/test/index.js",
     //     },
-    //     remotes: remotes(options.isServer),
+    //     // dts: false,
     //     shared: {},
     //     extraOptions: {
     //       exposePages: true,
@@ -27,5 +27,22 @@ module.exports = {
     //   })
     // );
     return config;
+  },
+  async headers() {
+    return [
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "*" },
+          { key: "Access-Control-Allow-Headers", value: "*" },
+          { key: "Cache-Control", value: "no-store" },
+        ],
+      },
+      {
+        source: "/:path*.(woff|woff2|ttf|eot|otf)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000" }],
+      },
+    ];
   },
 };
